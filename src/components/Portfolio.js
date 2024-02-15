@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../App.css";
 
 export default function Portfolio({ data }) {
   const [actual, setActual] = useState(0);
@@ -23,27 +24,18 @@ export default function Portfolio({ data }) {
   }, []);
 
   return (
-    <tbody>
-      <tr>
-        <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-          {data.symbol}
-        </td>
-        <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-          {parseFloat(data.quantity).toFixed(4)}
-        </td>
-        <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-          {parseFloat(data.price).toFixed(4)}
-        </td>
-        <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-          {(parseFloat(data.price) / parseFloat(data.quantity)).toFixed(2)}
-        </td>
-        <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-          {(
-            actual * data.quantity -
-            (parseFloat(data.price) / parseFloat(data.quantity)) * data.quantity
-          ).toFixed(2)}
-        </td>
-      </tr>
-    </tbody>
+    <tr>
+      <td>{data.symbol}</td>
+      <td>{parseFloat(data.quantity).toFixed(4)}</td>
+      <td>{parseFloat(data.price).toFixed(4)}&nbsp;BRL</td>
+      <td>{(parseFloat(data.price) / parseFloat(data.quantity)).toFixed(2)}</td>
+      <td>
+        {(
+          actual * data.quantity -
+          (parseFloat(data.price) / parseFloat(data.quantity)) * data.quantity
+        ).toFixed(2)}
+        &nbsp;BRL
+      </td>
+    </tr>
   );
 }

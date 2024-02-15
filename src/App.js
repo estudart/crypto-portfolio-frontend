@@ -15,36 +15,35 @@ function App() {
     }
     getData();
   }, []);
+
   return (
-    <div className="App">
-      {data !== "" ? (
-        <table style={{ borderCollapse: "collapse", width: "100%" }}>
-          <thead>
-            <tr>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
-                Symbol
-              </th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
-                Quantity
-              </th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
-                Price
-              </th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
-                AVG Price
-              </th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
-                Profit
-              </th>
-            </tr>
-          </thead>
-          {data.map((crypto) => (
-            <Portfolio data={crypto} />
-          ))}
-        </table>
-      ) : (
-        <div>Loading...</div>
-      )}
+    <div className="App dark-theme">
+      {" "}
+      <header>
+        <h1>CryptoSphere</h1>
+      </header>
+      <main>
+        {data !== "" ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>AVG Price</th>
+                <th>Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((crypto) => (
+                <Portfolio key={crypto.symbol} data={crypto} />
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div>Loading...</div>
+        )}
+      </main>
     </div>
   );
 }
