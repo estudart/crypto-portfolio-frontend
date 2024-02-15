@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Portfolio from "./components/Portfolio";
 
 function App() {
   const [data, setData] = useState("");
@@ -17,20 +18,31 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data !== "" ? (
+        <table style={{ borderCollapse: "collapse", width: "100%" }}>
+          <thead>
+            <tr>
+              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
+                Symbol
+              </th>
+              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
+                Quantity
+              </th>
+              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
+                Price
+              </th>
+              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
+                Profit
+              </th>
+            </tr>
+          </thead>
+          {data.map((crypto) => (
+            <Portfolio data={crypto} />
+          ))}
+        </table>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 }
