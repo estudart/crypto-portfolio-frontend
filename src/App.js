@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -30,6 +29,9 @@ function App() {
               </th>
               <th style={{ border: "1px solid #ddd", padding: "8px" }}>
                 Price
+              </th>
+              <th style={{ border: "1px solid #ddd", padding: "8px" }}>
+                AVG Price
               </th>
               <th style={{ border: "1px solid #ddd", padding: "8px" }}>
                 Profit
