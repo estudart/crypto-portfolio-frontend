@@ -2,6 +2,7 @@ import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Portfolio from "./components/Portfolio";
+import PieChart from "./components/PieChart";
 
 function App() {
   const [data, setData] = useState("");
@@ -24,22 +25,27 @@ function App() {
       </header>
       <main>
         {data !== "" ? (
-          <table>
-            <thead>
-              <tr>
-                <th>Symbol</th>
-                <th>Quantity</th>
-                <th>Amount</th>
-                <th>AVG Price</th>
-                <th>Profit</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((crypto) => (
-                <Portfolio key={crypto.symbol} data={crypto} />
-              ))}
-            </tbody>
-          </table>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+                  <th>AVG Price</th>
+                  <th>Profit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((crypto) => (
+                  <Portfolio key={crypto.symbol} data={crypto} />
+                ))}
+              </tbody>
+            </table>
+            <div className="pie-chart">
+              <PieChart data={data} />
+            </div>
+          </div>
         ) : (
           <div>Loading...</div>
         )}
