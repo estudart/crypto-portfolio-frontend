@@ -1,7 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    async function getData() {
+      const result = await axios.get("http://127.0.0.1:5000/portfolio");
+      const result_data = result.data;
+      console.log(result_data);
+      setData(result_data);
+    }
+    getData();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
