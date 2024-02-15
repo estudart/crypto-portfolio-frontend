@@ -15,20 +15,20 @@ export default function PieChart({ data }) {
       {
         data: values,
         backgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-          "#FF6666",
+          "#FF5733",
+          "#FFC300",
+          "#32CD32",
+          "#008080",
+          "#800080",
+          "#800000",
         ],
         hoverBackgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-          "#FF6666",
+          "#E64D22",
+          "#E6B800",
+          "#2EB82E",
+          "#005959",
+          "#590059",
+          "#590000",
         ],
       },
     ],
@@ -36,7 +36,7 @@ export default function PieChart({ data }) {
 
   return (
     <div>
-      <h2>Pie Chart</h2>
+      <h2>Assets Distribution Overview</h2>
       <Pie data={dataset} />
     </div>
   );
