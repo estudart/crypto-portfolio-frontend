@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Portfolio from "./components/Portfolio";
 import PieChart from "./components/PieChart";
+import OrderReport from "./components/OrderReport";
 
 function App() {
   const [data, setData] = useState("");
@@ -42,6 +43,7 @@ function App() {
                 ))}
               </tbody>
             </table>
+            <OrderReport />
             <div className="pie-chart">
               <PieChart data={data} />
             </div>
