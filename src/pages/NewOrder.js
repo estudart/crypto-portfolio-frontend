@@ -5,7 +5,7 @@ function NewOrder() {
     <div className="App dark-theme">
       {" "}
       <header>
-        <h1>Order Report</h1>
+        <h1 className="page-title">Order Report</h1>
       </header>
       <main>
         <OrderReport />

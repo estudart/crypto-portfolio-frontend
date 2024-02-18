@@ -35,7 +35,7 @@ export default function PieChart({ data }) {
   };
 
   return (
-    <div>
+    <div style={{ width: "400px", height: "400px" }}>
       <Pie data={dataset} />
     </div>
   );

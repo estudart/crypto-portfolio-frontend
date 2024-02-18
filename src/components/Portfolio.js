@@ -27,7 +27,7 @@ export default function Portfolio({ data }) {
     <tr>
       <td>{data.symbol}</td>
       <td>{parseFloat(data.quantity).toFixed(4)}</td>
-      <td>{parseFloat(data.price).toFixed(4)}&nbsp;BRL</td>
+      <td>{parseFloat(data.price).toFixed(2)}&nbsp;BRL</td>
       <td>{(parseFloat(data.price) / parseFloat(data.quantity)).toFixed(2)}</td>
       <td>
         {(

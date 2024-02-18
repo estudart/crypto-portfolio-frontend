@@ -19,6 +19,12 @@ table {
   margin: 0 auto; /* Center the table */
 }
 
+#root > div > main > div > table {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
 th,
 td {
   border: 1px solid #ddd;
@@ -97,7 +103,7 @@ tr:hover {
 .form-input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   background-color: #333;
   border: none;
   border-radius: 8px;
@@ -121,4 +127,8 @@ tr:hover {
 
 .form-submit:hover {
   background-color: #00a383;
+}
+
+.page-title {
+  padding: 1.5%;
 }

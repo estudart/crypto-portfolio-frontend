@@ -19,7 +19,7 @@ function Home() {
     <div className="App dark-theme">
       {" "}
       <header>
-        <h1>CryptoSphere</h1>
+        <h1 className="page-title">CryptoSphere</h1>
       </header>
       <main>
         {data !== "" ? (

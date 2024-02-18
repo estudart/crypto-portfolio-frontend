@@ -19,7 +19,7 @@ function Overview() {
     <div className="App dark-theme">
       {" "}
       <header>
-        <h1>Assets Distribution Overview</h1>
+        <h1 className="page-title">Assets Distribution</h1>
       </header>
       <main>
         {data !== "" ? (
