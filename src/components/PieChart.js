@@ -36,7 +36,6 @@ export default function PieChart({ data }) {
 
   return (
     <div>
-      <h2>Assets Distribution Overview</h2>
       <Pie data={dataset} />
     </div>
   );

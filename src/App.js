@@ -1,59 +1,18 @@
 import "./App.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Portfolio from "./components/Portfolio";
-import PieChart from "./components/PieChart";
-import OrderReport from "./components/OrderReport";
+import Home from "./pages/Home";
+import NewOrder from "./pages/NewOrder";
+import Overview from "./pages/Overview";
 
-function App() {
-  const [data, setData] = useState("");
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-  useEffect(() => {
-    async function getData() {
-      const result = await axios.get("http://127.0.0.1:5000/portfolio");
-      const result_data = result.data;
-      console.log(result_data);
-      setData(result_data);
-    }
-    getData();
-  }, []);
-
+export default function App() {
   return (
-    <div className="App dark-theme">
-      {" "}
-      <header>
-        <h1>CryptoSphere</h1>
-      </header>
-      <main>
-        {data !== "" ? (
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Symbol</th>
-                  <th>Quantity</th>
-                  <th>Amount</th>
-                  <th>AVG Price</th>
-                  <th>Profit</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((crypto) => (
-                  <Portfolio key={crypto.symbol} data={crypto} />
-                ))}
-              </tbody>
-            </table>
-            <OrderReport />
-            <div className="pie-chart">
-              <PieChart data={data} />
-            </div>
-          </div>
-        ) : (
-          <div>Loading...</div>
-        )}
-      </main>
-    </div>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/new_order" element={<NewOrder />}></Route>
+        <Route path="/overview" element={<Overview />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
