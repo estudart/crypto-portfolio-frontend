@@ -19,7 +19,7 @@ table {
   margin: 0 auto; /* Center the table */
 }
 
-#root > div > main > div > table {
+#root > div > main > div > table > thead > tr {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;

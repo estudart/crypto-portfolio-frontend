@@ -34,8 +34,8 @@ export default function NavBar() {
                   borderRadius: "50%",
                   padding: "auto",
                 }}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpQc5LBZu4lwr8rI7UzbPvwqLeDFoAVJtimw&usqp=CAU"
-                alt="Brazil Icon"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMdq1AhY-aYEpxwYvTyHETXwYJad3PwH_UTA&usqp=CAU"
+                alt="Crypto Icon"
               />
             </li>
             <Link to={`/`} className="nav-link">
