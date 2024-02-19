@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import "../App.css";
 
 export default function NavBar() {
+  const [activeItem, setActiveItem] = useState(null);
+
+  const handleActiveItem = (itemName) => {
+    setActiveItem(itemName);
+  };
   return (
     <nav
       className="navbar navbar-expand-md navbar-dark bg-dark"
@@ -38,16 +45,40 @@ export default function NavBar() {
                 alt="Crypto Icon"
               />
             </li>
-            <Link to={`/`} className="nav-link">
+            <Link
+              to={`/`}
+              className={
+                activeItem === "Portfolio" ? "nav-link active" : "nav-link"
+              }
+              onClick={() => handleActiveItem("Portfolio")}
+            >
               <li className="nav-item">Portfolio</li>
             </Link>
-            <Link to={`/overview`} className="nav-link">
+            <Link
+              to={`/overview`}
+              className={
+                activeItem === "Overview" ? "nav-link active" : "nav-link"
+              }
+              onClick={() => handleActiveItem("Overview")}
+            >
               <li className="nav-item">Overview</li>
             </Link>
-            <Link to={`/new_order`} className="nav-link">
+            <Link
+              to={`/new_order`}
+              className={
+                activeItem === "Report Order" ? "nav-link active" : "nav-link"
+              }
+              onClick={() => handleActiveItem("Report Order")}
+            >
               <li className="nav-item">Report Order</li>
             </Link>
-            <Link to={`/exec_orders`} className="nav-link">
+            <Link
+              to={`/exec_orders`}
+              className={
+                activeItem === "Executed" ? "nav-link active" : "nav-link"
+              }
+              onClick={() => handleActiveItem("Executed")}
+            >
               <li className="nav-item">Executed</li>
             </Link>
           </ul>
