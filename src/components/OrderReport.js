@@ -28,7 +28,7 @@ export default function OrderReport() {
         }
       );
 
-      console.log(response.data);
+      alert(response.data["message"]);
       setTicker("");
       setSide("");
       setQuantity("");

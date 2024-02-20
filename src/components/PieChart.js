@@ -1,12 +1,38 @@
 import "chart.js/auto";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 
 export default function PieChart({ data }) {
+  const [prices, setPrices] = useState({});
+
+  useEffect(() => {
+    async function fetchPrices() {
+      const prices = {};
+      for (const asset of data) {
+        const result_usd = await axios.get(
+          `http://economia.awesomeapi.com.br/json/last/USD-BRL`
+        );
+        const usd_data = result_usd.data;
+        const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
+        const result_last = await axios.get(
+          `https://api.blockchain.com/v3/exchange/tickers/${asset.symbol}-USD`
+        );
+        const last_data = result_last.data.last_trade_price;
+        prices[asset.symbol] = last_data * usd_data_ask;
+        console.log(prices[asset.symbol]);
+        console.log(Object.keys(prices).length);
+      }
+      setPrices(prices);
+    }
+    fetchPrices();
+  }, [data]);
+
   // Extract labels and values from the data
   const labels = data.map((crypto) => crypto.symbol);
-  console.log(labels);
-  const values = data.map((crypto) => crypto.price.toFixed(2));
-  console.log(values);
+  const values = data.map((crypto) =>
+    (prices[crypto.symbol] * crypto.quantity).toFixed(2)
+  );
 
   // Create a dataset object for Chart.js
   const dataset = {
@@ -36,7 +62,11 @@ export default function PieChart({ data }) {
 
   return (
     <div style={{ width: "400px", height: "400px" }}>
-      <Pie data={dataset} />
+      {Object.keys(prices).length === data.length ? (
+        <Pie data={dataset} />
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 }
