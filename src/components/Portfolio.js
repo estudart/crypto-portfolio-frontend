@@ -21,7 +21,7 @@ export default function Portfolio({ data }) {
       setActual(last_data * usd_data_ask);
     }
     getActual();
-  }, []);
+  }, [data]);
 
   return (
     <tr>
