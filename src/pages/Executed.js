@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ExecutedOrders from "../components/ExecutedOrders";
+import NavBar from "../components/NavBar";
 import "../App.css";
 
 function Executed() {
@@ -8,17 +9,30 @@ function Executed() {
 
   useEffect(() => {
     async function getData() {
-      const result = await axios.get("http://127.0.0.1:5000/exec_order");
-      const result_data = result.data;
-      console.log(result_data);
-      setData(result_data);
+      try {
+        // Get the JWT token from local storage
+        const token = localStorage.getItem("token");
+
+        // Include the token in the request headers
+        const result = await axios.get("http://127.0.0.1:5000/exec_order", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const result_data = result.data;
+        console.log(result_data);
+        setData(result_data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
     getData();
   }, []);
 
   return (
     <div className="App dark-theme">
-      {" "}
+      <NavBar />
       <header>
         <h1 className="page-title">Executed Orders</h1>
       </header>

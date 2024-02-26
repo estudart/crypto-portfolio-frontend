@@ -1,20 +1,19 @@
-import OrderReport from "../components/OrderReport";
-import NavBar from "../components/NavBar";
+import LoginForm from "../components/LoginForm";
 
-function NewOrder() {
+function Login() {
   return (
     <div className="App dark-theme">
-      <NavBar />
+      {" "}
       {/*
       <header>
         <h1 className="page-title">Order Report</h1>
       </header>
       */}
       <main>
-        <OrderReport />
+        <LoginForm />
       </main>
     </div>
   );
 }
 
-export default NewOrder;
+export default Login;

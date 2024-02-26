@@ -12,6 +12,8 @@ export default function OrderReport() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      const token = localStorage.getItem("token");
+
       const response = await axios.post(
         "http://127.0.0.1:5000/exec_order",
         {
@@ -23,7 +25,7 @@ export default function OrderReport() {
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
         }
       );

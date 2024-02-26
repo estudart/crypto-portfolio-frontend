@@ -46,7 +46,7 @@ export default function NavBar() {
               />
             </li>
             <Link
-              to={`/`}
+              to={`/home`}
               className={
                 activeItem === "Portfolio" ? "nav-link active" : "nav-link"
               }
