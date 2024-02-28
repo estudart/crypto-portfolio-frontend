@@ -92,6 +92,14 @@ tr:hover {
   margin-inline: auto;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .form-container {
   max-width: 400px;
   margin: 0 auto;
@@ -136,4 +144,9 @@ tr:hover {
 
 .page-title {
   padding: 1.5%;
+}
+
+.page-title-login {
+  padding: 3%;
+  width: 100vw;
 }

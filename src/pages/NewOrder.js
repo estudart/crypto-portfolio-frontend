@@ -10,7 +10,7 @@ function NewOrder() {
         <h1 className="page-title">Order Report</h1>
       </header>
       */}
-      <main>
+      <main className="container" style={{ height: "90vh" }}>
         <OrderReport />
       </main>
     </div>

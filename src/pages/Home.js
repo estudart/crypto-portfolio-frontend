@@ -33,7 +33,7 @@ function Home() {
     <div className="App dark-theme">
       <NavBar />
       <header>
-        <h1 className="page-title">CoinKeeper</h1>
+        <h1 className="page-title">Portfolio</h1>
       </header>
       <main>
         {data !== "" ? (

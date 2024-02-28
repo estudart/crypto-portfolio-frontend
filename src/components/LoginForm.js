@@ -15,19 +15,19 @@ function LoginForm() {
         email: email,
         password: password,
       });
-
-      alert("login success");
-      setEmail("");
-      setPassword("");
-
-      // Assuming the token is returned in the response data
       const token = response.data.access_token;
+      if (response.data.access_token) {
+        alert("login success");
+        setEmail("");
+        setPassword("");
+        // Redirect to the home page
+        navigate("/home");
+      } else {
+        alert("invalid credentials");
+      }
 
       // Store the token in localStorage
       localStorage.setItem("token", token);
-
-      // Redirect to the home page
-      navigate("/home");
     } catch (error) {
       console.error("Error:", error);
     }
