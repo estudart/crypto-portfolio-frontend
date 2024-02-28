@@ -1,8 +1,9 @@
 import LoginForm from "../components/LoginForm";
+import bullback from "../images/CryptoBull.webp";
 
 function Login() {
   return (
-    <div className="App dark-theme">
+    <div className="App dark-theme login-page">
       {/*
       <header>
         <h1 className="page-title">Order Report</h1>

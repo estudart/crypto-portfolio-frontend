@@ -18,6 +18,14 @@ html {
   color: #fff; /* White text color */
 }
 
+.login-page {
+  background-image: url("./images/CryptoBull.webp");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: bottom;
+  height: 100vh;
+}
+
 table {
   border-collapse: collapse;
   width: 80%;
@@ -153,4 +161,6 @@ tr:hover {
 .page-title-login {
   padding: 3%;
   width: 100vw;
+  color: #ffffff;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
 }
