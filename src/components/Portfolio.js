@@ -15,22 +15,13 @@ export default function Portfolio({ data }) {
         const usd_data = result_usd.data;
         const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
 
-        // Map symbols to their corresponding Coinbase currency codes
-        const symbolMap = {
-          CRO: "CRO",
-          BTC: "BTC",
-          ETH: "ETH",
-        };
-
-        // Get the currency code for the given symbol
-        const currencyCode = symbolMap[data.symbol];
-        if (!currencyCode) {
+        if (!data.symbol) {
           console.error("Symbol not supported:", data.symbol);
           return;
         }
 
         // Fetch the price data for the currency from Coinbase API
-        const coinbase_api_url = `https://api.coinbase.com/v2/prices/${currencyCode}-USD/spot`;
+        const coinbase_api_url = `https://api.coinbase.com/v2/prices/${data.symbol}-USD/spot`;
         const result_last = await axios.get(coinbase_api_url);
         const last_data = parseFloat(result_last.data.data.amount);
 

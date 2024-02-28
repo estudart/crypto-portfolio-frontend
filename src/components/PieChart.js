@@ -15,10 +15,10 @@ export default function PieChart({ data }) {
         );
         const usd_data = result_usd.data;
         const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
-        const result_last = await axios.get(
-          `https://api.blockchain.com/v3/exchange/tickers/${asset.symbol}-USD`
-        );
-        const last_data = result_last.data.last_trade_price;
+        // Fetch the price data for the currency from Coinbase API
+        const coinbase_api_url = `https://api.coinbase.com/v2/prices/${asset.symbol}-USD/spot`;
+        const result_last = await axios.get(coinbase_api_url);
+        const last_data = parseFloat(result_last.data.data.amount);
         prices[asset.symbol] = last_data * usd_data_ask;
         console.log(prices[asset.symbol]);
         console.log(Object.keys(prices).length);
