@@ -55,6 +55,12 @@ function LoginForm() {
           />
         </label>
         <input type="submit" value="Login" className="form-submit" />
+        <input
+          type="button"
+          value="Register"
+          className="form-submit"
+          style={{ marginLeft: "2%" }}
+        />
       </form>
     </div>
   );

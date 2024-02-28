@@ -103,6 +103,10 @@ tr:hover {
 .form-container {
   max-width: 400px;
   margin: 0 auto;
+  border: 1px solid white;
+  border-radius: 5%;
+  padding: 2%;
+  background-color: #1e2127;
 }
 
 .form-label {
