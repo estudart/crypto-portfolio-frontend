@@ -5,6 +5,8 @@ import axios from "axios";
 
 function Home() {
   const [data, setData] = useState("");
+  const [somaTotal, setSomaTotal] = useState(0);
+  const [profitTotal, setProfitTotal] = useState(0);
 
   useEffect(() => {
     async function getData() {
@@ -28,6 +30,37 @@ function Home() {
     }
     getData();
   }, []);
+
+  useEffect(() => {
+    async function getProfit() {
+      var profit = 0;
+      var soma = 0;
+      for (const [key, value] of Object.entries(data)) {
+        var actualProfit = 0;
+        console.log(key, value);
+        soma = soma + value.price;
+
+        //console.log(soma);
+
+        const result_usd = await axios.get(
+          `http://economia.awesomeapi.com.br/json/last/USD-BRL`
+        );
+        const usd_data = result_usd.data;
+        const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
+
+        const coinbase_api_url = `https://api.coinbase.com/v2/prices/${value.symbol}-USD/spot`;
+        const result_last = await axios.get(coinbase_api_url);
+        const last_data = parseFloat(result_last.data.data.amount);
+
+        actualProfit = last_data * usd_data_ask * value.quantity - value.price;
+        profit = profit + actualProfit;
+        console.log(actualProfit);
+      }
+      setSomaTotal(soma);
+      setProfitTotal(profit);
+    }
+    getProfit();
+  }, [data]);
 
   return (
     <div className="App dark-theme">
@@ -53,6 +86,14 @@ function Home() {
                   <Portfolio key={crypto.symbol} data={crypto} />
                 ))}
               </tbody>
+            </table>
+            <table>
+              <thead>
+                <tr>
+                  <th>Total invested: {somaTotal.toFixed(2)} BRL</th>
+                  <th>Invested + Profit: {profitTotal.toFixed(2)}</th>
+                </tr>
+              </thead>
             </table>
           </div>
         ) : (
