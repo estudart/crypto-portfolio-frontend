@@ -37,7 +37,7 @@ function Home() {
       var soma = 0;
       for (const [key, value] of Object.entries(data)) {
         var actualProfit = 0;
-        console.log(key, value);
+        //console.log(key, value);
         soma = soma + value.price;
 
         //console.log(soma);
@@ -48,13 +48,23 @@ function Home() {
         const usd_data = result_usd.data;
         const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
 
-        const coinbase_api_url = `https://api.coinbase.com/v2/prices/${value.symbol}-USD/spot`;
-        const result_last = await axios.get(coinbase_api_url);
-        const last_data = parseFloat(result_last.data.data.amount);
+        if (value.symbol === "PEPE") {
+          const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${value.symbol}USDT`;
+          const result_last = await axios.get(binance_api_url);
+          const last_data = parseFloat(result_last.data.price);
+          actualProfit =
+            last_data * usd_data_ask * value.quantity - value.price;
+          profit = profit + actualProfit;
+        } else {
+          const coinbase_api_url = `https://api.coinbase.com/v2/prices/${value.symbol}-USD/spot`;
+          const result_last = await axios.get(coinbase_api_url);
+          const last_data = parseFloat(result_last.data.data.amount);
+          actualProfit =
+            last_data * usd_data_ask * value.quantity - value.price;
+          profit = profit + actualProfit;
+        }
 
-        actualProfit = last_data * usd_data_ask * value.quantity - value.price;
-        profit = profit + actualProfit;
-        console.log(actualProfit);
+        //console.log(actualProfit);
       }
       setSomaTotal(soma);
       setProfitTotal(profit);
@@ -91,7 +101,11 @@ function Home() {
               <thead>
                 <tr>
                   <th>Total invested: {somaTotal.toFixed(2)} BRL</th>
-                  <th>Invested + Profit: {profitTotal.toFixed(2)}</th>
+                  <th>
+                    Invested + Profit: {somaTotal.toFixed(2)} +{" "}
+                    {profitTotal.toFixed(2)} ={" "}
+                    {(somaTotal + profitTotal).toFixed(2)}
+                  </th>
                 </tr>
               </thead>
             </table>
