@@ -37,10 +37,7 @@ function Home() {
       var soma = 0;
       for (const [key, value] of Object.entries(data)) {
         var actualProfit = 0;
-        //console.log(key, value);
         soma = soma + value.price;
-
-        //console.log(soma);
 
         const result_usd = await axios.get(
           `http://economia.awesomeapi.com.br/json/last/USD-BRL`
@@ -48,23 +45,22 @@ function Home() {
         const usd_data = result_usd.data;
         const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
 
-        if (value.symbol === "PEPE") {
-          const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${value.symbol}USDT`;
-          const result_last = await axios.get(binance_api_url);
-          const last_data = parseFloat(result_last.data.price);
-          actualProfit =
-            last_data * usd_data_ask * value.quantity - value.price;
-          profit = profit + actualProfit;
-        } else {
+        try {
           const coinbase_api_url = `https://api.coinbase.com/v2/prices/${value.symbol}-USD/spot`;
           const result_last = await axios.get(coinbase_api_url);
           const last_data = parseFloat(result_last.data.data.amount);
           actualProfit =
             last_data * usd_data_ask * value.quantity - value.price;
           profit = profit + actualProfit;
+        } catch (error) {
+          // If symbol not found in Coinbase API, switch to Binance API
+          const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${value.symbol}USDT`;
+          const result_last = await axios.get(binance_api_url);
+          const last_data = parseFloat(result_last.data.price);
+          actualProfit =
+            last_data * usd_data_ask * value.quantity - value.price;
+          profit = profit + actualProfit;
         }
-
-        //console.log(actualProfit);
       }
       setSomaTotal(soma);
       setProfitTotal(profit);

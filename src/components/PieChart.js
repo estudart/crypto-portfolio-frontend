@@ -10,18 +10,33 @@ export default function PieChart({ data }) {
     async function fetchPrices() {
       const prices = {};
       for (const asset of data) {
-        const result_usd = await axios.get(
-          `http://economia.awesomeapi.com.br/json/last/USD-BRL`
-        );
-        const usd_data = result_usd.data;
-        const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
-        // Fetch the price data for the currency from Coinbase API
-        const coinbase_api_url = `https://api.coinbase.com/v2/prices/${asset.symbol}-USD/spot`;
-        const result_last = await axios.get(coinbase_api_url);
-        const last_data = parseFloat(result_last.data.data.amount);
-        prices[asset.symbol] = last_data * usd_data_ask;
-        console.log(prices[asset.symbol]);
-        console.log(Object.keys(prices).length);
+        try {
+          const result_usd = await axios.get(
+            `http://economia.awesomeapi.com.br/json/last/USD-BRL`
+          );
+          const usd_data = result_usd.data;
+          const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
+          // Fetch the price data for the currency from Coinbase API
+          const coinbase_api_url = `https://api.coinbase.com/v2/prices/${asset.symbol}-USD/spot`;
+          const result_last = await axios.get(coinbase_api_url);
+          const last_data = parseFloat(result_last.data.data.amount);
+          prices[asset.symbol] = last_data * usd_data_ask;
+          console.log(prices[asset.symbol]);
+          console.log(Object.keys(prices).length);
+        } catch {
+          const result_usd = await axios.get(
+            `http://economia.awesomeapi.com.br/json/last/USD-BRL`
+          );
+          const usd_data = result_usd.data;
+          const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
+          // Fetch the price data for the currency from Coinbase API
+          const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${asset.symbol}USDT`;
+          const result_last = await axios.get(binance_api_url);
+          const last_data = parseFloat(result_last.data.price);
+          prices[asset.symbol] = last_data * usd_data_ask;
+          console.log(prices[asset.symbol]);
+          console.log(Object.keys(prices).length);
+        }
       }
       setPrices(prices);
     }
