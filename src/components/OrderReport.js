@@ -4,10 +4,10 @@ import "../App.css";
 
 export default function OrderReport() {
   const [ticker, setTicker] = useState("");
-  const [side, setSide] = useState("");
+  const [side, setSide] = useState("BUY");
   const [quantity, setQuantity] = useState("");
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("");
+  const [currency, setCurrency] = useState("BRL");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,10 +32,10 @@ export default function OrderReport() {
 
       alert(response.data["message"]);
       setTicker("");
-      setSide("");
+      setSide("BUY");
       setQuantity("");
       setAmount("");
-      setCurrency("");
+      setCurrency("BRL");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -55,12 +55,15 @@ export default function OrderReport() {
         </label>
         <label className="form-label">
           BUY/SELL:
-          <input
+          <select
             type="text"
             value={side}
-            onChange={(e) => setSide(e.target.value.toUpperCase())}
+            onChange={(e) => setSide(e.target.value)}
             className="form-input"
-          />
+          >
+            <option value="BUY">BUY</option>
+            <option value="SELL">SELL</option>
+          </select>
         </label>
         <label className="form-label">
           Quantity:
@@ -82,12 +85,16 @@ export default function OrderReport() {
         </label>
         <label className="form-label">
           Currency:
-          <input
+          <select
             type="text"
             value={currency}
-            onChange={(e) => setCurrency(e.target.value.toUpperCase())}
+            onChange={(e) => setCurrency(e.target.value)}
             className="form-input"
-          />
+          >
+            <option value="BRL">BRL</option>
+            {/*<option>USD</option>
+            <option>USDT</option>*/}
+          </select>
         </label>
         <input type="submit" className="form-submit" />
       </form>
