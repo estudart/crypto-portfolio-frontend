@@ -1,5 +1,4 @@
 import LoginForm from "../components/LoginForm";
-import bullback from "../images/CryptoBull.webp";
 
 function Login() {
   return (

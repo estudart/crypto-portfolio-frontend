@@ -19,10 +19,10 @@ html {
 }
 
 .login-page {
-  background-image: url("./images/CryptoBull.webp");
+  background-color: black;
+  background-image: url("./images/bit.webp");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: bottom;
+  background-position: top;
   height: 100vh;
 }
 
@@ -110,7 +110,7 @@ tr:hover {
 
 .form-container {
   max-width: 400px;
-  margin: 0 auto;
+  margin-top: 3%;
   border: 1px solid white;
   border-radius: 5%;
   padding: 2%;
@@ -159,7 +159,6 @@ tr:hover {
 }
 
 .page-title-login {
-  padding: 3%;
   width: 100vw;
   color: #ffffff;
   text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
