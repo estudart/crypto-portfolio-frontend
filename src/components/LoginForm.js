@@ -60,6 +60,7 @@ function LoginForm() {
           value="Register"
           className="form-submit"
           style={{ marginLeft: "2%" }}
+          onClick={() => navigate("/register")}
         />
       </form>
     </div>

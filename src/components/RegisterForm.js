@@ -11,16 +11,16 @@ function RegisterForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://127.0.0.1:5000/register", {
+      const response = await axios.post("http://127.0.0.1:5000/register_user", {
         email: email,
         password: password,
       });
 
-      alert(response.data);
+      alert(response.data.message);
       setEmail("");
       setPassword("");
       // Redirect to the login page
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -47,13 +47,7 @@ function RegisterForm() {
             className="form-input"
           />
         </label>
-        <input type="submit" value="Login" className="form-submit" />
-        <input
-          type="button"
-          value="Register"
-          className="form-submit"
-          style={{ marginLeft: "2%" }}
-        />
+        <input type="submit" value="Register" className="form-submit" />
       </form>
     </div>
   );

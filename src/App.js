@@ -1,5 +1,6 @@
 import "./App.css";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Home from "./pages/Home";
 import NewOrder from "./pages/NewOrder";
 import Overview from "./pages/Overview";
@@ -12,6 +13,7 @@ export default function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/new_order" element={<NewOrder />}></Route>
         <Route path="/overview" element={<Overview />}></Route>
