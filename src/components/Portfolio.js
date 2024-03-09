@@ -44,9 +44,17 @@ export default function Portfolio({ data }) {
   return (
     <tr>
       <td>{data.symbol}</td>
-      <td>{parseFloat(data.quantity).toFixed(4)}</td>
+      <td>
+        {parseFloat(data.quantity).toFixed(4) < parseFloat(0.00000001)
+          ? "--"
+          : parseFloat(data.quantity).toFixed(4)}
+      </td>
       <td>{parseFloat(data.price).toFixed(2)}&nbsp;BRL</td>
-      <td>{(parseFloat(data.price) / parseFloat(data.quantity)).toFixed(2)}</td>
+      <td>
+        {parseFloat(data.quantity).toFixed(4) < parseFloat(0.00000001)
+          ? "--"
+          : (parseFloat(data.price) / parseFloat(data.quantity)).toFixed(2)}
+      </td>
       <td>
         {parseFloat(data.quantity).toFixed(4) < parseFloat(0.00000001)
           ? -parseFloat(data.price).toFixed(2)
