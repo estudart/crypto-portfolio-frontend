@@ -48,10 +48,13 @@ export default function Portfolio({ data }) {
       <td>{parseFloat(data.price).toFixed(2)}&nbsp;BRL</td>
       <td>{(parseFloat(data.price) / parseFloat(data.quantity)).toFixed(2)}</td>
       <td>
-        {(
-          actual * data.quantity -
-          (parseFloat(data.price) / parseFloat(data.quantity)) * data.quantity
-        ).toFixed(2)}
+        {parseFloat(data.quantity).toFixed(4) < parseFloat(0.00000001)
+          ? -parseFloat(data.price).toFixed(2)
+          : (
+              actual * data.quantity -
+              (parseFloat(data.price) / parseFloat(data.quantity)) *
+                data.quantity
+            ).toFixed(2)}
         &nbsp;BRL
       </td>
     </tr>

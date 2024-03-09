@@ -57,9 +57,17 @@ function Home() {
           const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${value.symbol}USDT`;
           const result_last = await axios.get(binance_api_url);
           const last_data = parseFloat(result_last.data.price);
-          actualProfit =
-            last_data * usd_data_ask * value.quantity - value.price;
+          if (
+            last_data * usd_data_ask * value.quantity - value.price <
+            0.0000001
+          ) {
+            actualProfit = -value.price;
+          } else {
+            actualProfit =
+              last_data * usd_data_ask * value.quantity - value.price;
+          }
           profit = profit + actualProfit;
+          console.log(profit);
         }
       }
       setSomaTotal(soma);
