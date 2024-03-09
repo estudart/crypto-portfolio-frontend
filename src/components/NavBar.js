@@ -1,23 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
-import "../App.css";
 
 export default function NavBar() {
-  const [activeItem, setActiveItem] = useState(null);
+  const location = useLocation();
 
-  const handleActiveItem = (itemName) => {
-    setActiveItem(itemName);
-  };
   return (
-    <nav
-      className="navbar navbar-expand-md navbar-dark bg-dark"
-      style={{
-        backgroundColor: "black",
-        border: "1px solid #282c34",
-        borderTop: "0px",
-      }}
-    >
+    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
@@ -48,38 +36,40 @@ export default function NavBar() {
             <Link
               to={`/home`}
               className={
-                activeItem === "Portfolio" ? "nav-link active" : "nav-link"
+                location.pathname === "/home" ? "nav-link active" : "nav-link"
               }
-              onClick={() => handleActiveItem("Portfolio")}
             >
-              <li className="nav-item">Portfolio</li>
+              Portfolio
             </Link>
             <Link
               to={`/overview`}
               className={
-                activeItem === "Overview" ? "nav-link active" : "nav-link"
+                location.pathname === "/overview"
+                  ? "nav-link active"
+                  : "nav-link"
               }
-              onClick={() => handleActiveItem("Overview")}
             >
-              <li className="nav-item">Overview</li>
+              Overview
             </Link>
             <Link
               to={`/new_order`}
               className={
-                activeItem === "Report Order" ? "nav-link active" : "nav-link"
+                location.pathname === "/new_order"
+                  ? "nav-link active"
+                  : "nav-link"
               }
-              onClick={() => handleActiveItem("Report Order")}
             >
-              <li className="nav-item">Report Order</li>
+              Report Order
             </Link>
             <Link
               to={`/exec_orders`}
               className={
-                activeItem === "Executed" ? "nav-link active" : "nav-link"
+                location.pathname === "/exec_orders"
+                  ? "nav-link active"
+                  : "nav-link"
               }
-              onClick={() => handleActiveItem("Executed")}
             >
-              <li className="nav-item">Executed</li>
+              Executed
             </Link>
           </ul>
         </div>
