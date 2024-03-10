@@ -96,9 +96,12 @@ function Home() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((crypto) => (
-                  <Portfolio key={crypto.symbol} data={crypto} />
-                ))}
+                {data.map(
+                  (crypto) =>
+                    crypto.quantity > 0.0001 && (
+                      <Portfolio key={crypto.symbol} data={crypto} />
+                    )
+                )}
               </tbody>
             </table>
             <table>

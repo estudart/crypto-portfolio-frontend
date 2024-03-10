@@ -22,7 +22,8 @@ html {
   background-color: black;
   background-image: url("./images/bit.webp");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center bottom;
+  background-size: 60% 90%;
   height: 100vh;
 }
 
