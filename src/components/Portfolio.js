@@ -10,10 +10,10 @@ export default function Portfolio({ data }) {
       try {
         // Fetch USD to BRL conversion rate from another API
         const result_usd = await axios.get(
-          `http://economia.awesomeapi.com.br/json/last/USD-BRL`
+          `https://api.binance.com/api/v3/ticker/price?symbol=USDTBRL`
         );
         const usd_data = result_usd.data;
-        const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
+        const usd_data_ask = parseFloat(usd_data.price);
 
         if (!data.symbol) {
           console.error("Symbol not supported:", data.symbol);
@@ -22,7 +22,7 @@ export default function Portfolio({ data }) {
 
         // Fetch the price data for the currency from Coinbase API
         if (data.symbol === "PEPE") {
-          const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${data.symbol}USDT`;
+          const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${data.symbol}BRL`;
           const result_last = await axios.get(binance_api_url);
           const last_data = parseFloat(result_last.data.price);
           // Calculate the actual value

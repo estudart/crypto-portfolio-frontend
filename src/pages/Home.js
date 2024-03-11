@@ -40,10 +40,10 @@ function Home() {
         soma = soma + value.price;
 
         const result_usd = await axios.get(
-          `http://economia.awesomeapi.com.br/json/last/USD-BRL`
+          `https://api.binance.com/api/v3/ticker/price?symbol=USDTBRL`
         );
         const usd_data = result_usd.data;
-        const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
+        const usd_data_ask = parseFloat(usd_data.price);
 
         try {
           const coinbase_api_url = `https://api.coinbase.com/v2/prices/${value.symbol}-USD/spot`;
