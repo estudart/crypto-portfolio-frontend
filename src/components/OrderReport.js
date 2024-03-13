@@ -15,7 +15,7 @@ export default function OrderReport() {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://127.0.0.1:5000/exec_order",
+        "https://crypto-backend-52fe7d65b9dc.herokuapp.com/exec_order",
         {
           symbol: ticker,
           side: side,
