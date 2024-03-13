@@ -45,7 +45,7 @@ export default function OrderReport() {
     <div className="form-container">
       <form onSubmit={handleSubmit}>
         <label className="form-label">
-          Ticker:
+          Ticker: <span style={{ color: "gray" }}>(BTC, ETH, ...)</span>
           <input
             type="text"
             value={ticker}
@@ -75,7 +75,7 @@ export default function OrderReport() {
           />
         </label>
         <label className="form-label">
-          Amount:
+          Amount: <span style={{ color: "gray" }}>(Fiat)</span>
           <input
             type="number"
             value={amount}

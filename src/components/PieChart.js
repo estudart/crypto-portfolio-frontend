@@ -12,10 +12,10 @@ export default function PieChart({ data }) {
       for (const asset of data) {
         try {
           const result_usd = await axios.get(
-            `http://economia.awesomeapi.com.br/json/last/USD-BRL`
+            `https://api.binance.com/api/v3/ticker/price?symbol=USDTBRL`
           );
           const usd_data = result_usd.data;
-          const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
+          const usd_data_ask = parseFloat(usd_data.price);
           // Fetch the price data for the currency from Coinbase API
           const coinbase_api_url = `https://api.coinbase.com/v2/prices/${asset.symbol}-USD/spot`;
           const result_last = await axios.get(coinbase_api_url);
@@ -25,10 +25,10 @@ export default function PieChart({ data }) {
           console.log(Object.keys(prices).length);
         } catch {
           const result_usd = await axios.get(
-            `http://economia.awesomeapi.com.br/json/last/USD-BRL`
+            `https://api.binance.com/api/v3/ticker/price?symbol=USDTBRL`
           );
           const usd_data = result_usd.data;
-          const usd_data_ask = parseFloat(usd_data.USDBRL.ask);
+          const usd_data_ask = parseFloat(usd_data.price);
           // Fetch the price data for the currency from Coinbase API
           const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${asset.symbol}USDT`;
           const result_last = await axios.get(binance_api_url);

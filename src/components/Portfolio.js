@@ -20,20 +20,13 @@ export default function Portfolio({ data }) {
           return;
         }
 
-        // Fetch the price data for the currency from Coinbase API
-        if (data.symbol === "PEPE") {
-          const binance_api_url = `https://api.binance.com/api/v3/ticker/price?symbol=${data.symbol}BRL`;
-          const result_last = await axios.get(binance_api_url);
-          const last_data = parseFloat(result_last.data.price);
-          // Calculate the actual value
-          setActual(last_data * usd_data_ask);
-        } else {
-          const coinbase_api_url = `https://api.coinbase.com/v2/prices/${data.symbol}-USD/spot`;
-          const result_last = await axios.get(coinbase_api_url);
-          const last_data = parseFloat(result_last.data.data.amount);
-          // Calculate the actual value
-          setActual(last_data * usd_data_ask);
-        }
+        // Fetch the price data for the crypto from Coinbase API
+
+        const coinbase_api_url = `https://api.coinbase.com/v2/prices/${data.symbol}-USD/spot`;
+        const result_last = await axios.get(coinbase_api_url);
+        const last_data = parseFloat(result_last.data.data.amount);
+        // Calculate the actual value
+        setActual(last_data * usd_data_ask);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
