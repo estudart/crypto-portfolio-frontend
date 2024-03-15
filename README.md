@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# CryptoPulse Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Crypto Portfolio](https://github.com/estudart/crypto-portfolio-frontend/blob/main/images/Login_Page.PNG)
 
-## Available Scripts
+## Description
+This project showcases the frontend of a Crypto Portfolio application built using React. It allows users to monitor their positions on the market by reporting orders and registering those orders on a data base. Having this data stored, the frontend makes requests on Binance and CoinBase APIs in order the get real time market, this allows the application to calculate their average price and render the users profit or loss.
 
-In the project directory, you can run:
+## Application Link
+Explore the application [here](https://estudart.github.io/crypto-portfolio-frontend/).
 
-### `npm start`
+## Repository Link
+Find the code for this project on [GitHub](https://github.com/estudart/crypto-portfolio-frontend/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
+To run this project locally, follow these steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/estudart/crypto-portfolio-frontend.git
+2. Install dependencies:
+   ```bash
+   npm install
+3. Start the application:
+   ```bash
+   npm start
+3. Access the application in your browser at http://localhost:3000
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Pages
 
-### `npm test`
+### Login Page
+In this page you can see two different features, the login form and also the register form for new users in the platform.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Login](https://github.com/estudart/crypto-portfolio-frontend/blob/main/images/Login_Page.PNG)
 
-### `npm run build`
+### Portfolio page
+In this page the users can see all the crypto they current have and get important information such as avg price, amount invested and profit
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Portfolio](https://github.com/estudart/crypto-portfolio-frontend/blob/main/images/Portfolio_Page.PNG)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Report Order Page
+In this page the users will be able to report their orders to the system, a very intuitive form that interacts with the backend creating new orders on the database and populating the portfolio table.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Report](https://github.com/estudart/crypto-portfolio-frontend/blob/main/images/ReportOrder_Page.PNG)
 
-### `npm run eject`
+## Order History Page
+For this page the users are able to get all their orders registered on the Report Page, and gather important information from them such as date, amount, quantity and ticker.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![History](https://github.com/estudart/crypto-portfolio-frontend/blob/main/images/ExecutedOrders_Page.PNG)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributors
+Érico C. Studart - Software Developer
