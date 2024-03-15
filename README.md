@@ -32,7 +32,7 @@ In this page you can see two different features, the login form and also the reg
 ![Login](https://github.com/estudart/crypto-portfolio-frontend/blob/main/images/Login_Page.PNG)
 
 ### Portfolio page
-In this page the users can see all the crypto they current have and get important information such as avg price, amount invested and profit
+In this page the users can see all the crypto they current have and get important information such as quantity, avg price, amount invested and profit.
 
 ![Portfolio](https://github.com/estudart/crypto-portfolio-frontend/blob/main/images/Portfolio_Page.PNG)
 
