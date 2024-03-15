@@ -1,9 +1,7 @@
 # CryptoPulse Frontend
 
-![Crypto Portfolio](https://github.com/estudart/crypto-portfolio-frontend/blob/main/images/Login_Page.PNG)
-
 ## Description
-This project showcases the frontend of a Crypto Portfolio application built using React. It allows users to monitor their positions on the market by reporting orders and registering those orders on a data base. Having this data stored, the frontend makes requests on Binance and CoinBase APIs in order the get real time market, this allows the application to calculate their average price and render the users profit or loss.
+This project showcases the frontend of a Crypto Portfolio application built using React. It allows users to monitor their positions on the market by reporting orders and registering those orders on a data base. Having this data stored, the frontend makes requests on Binance and CoinBase APIs in order the get real time market data, this allows the application to calculate their average price and render the users profit or loss.
 
 ## Application Link
 Explore the application [here](https://estudart.github.io/crypto-portfolio-frontend/).
