@@ -15,7 +15,7 @@ export default function OrderReport() {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "https://127.0.0.1:5000/exec_order",
+        "http://127.0.0.1:5000/exec_order",
         {
           symbol: ticker,
           side: side,

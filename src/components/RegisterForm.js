@@ -12,7 +12,7 @@ function RegisterForm() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://127.0.0.1:5000/register_user",
+        "http://127.0.0.1:5000/register_user",
         {
           email: email,
           password: password,
