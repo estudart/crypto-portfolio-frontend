@@ -20,7 +20,7 @@ To run this project locally, follow these steps:
 3. Start the application:
    ```bash
    npm start
-3. Access the application in your browser at http://localhost:3000
+3. Access the application in your browser at http://localhost:3000/crypto-portfolio-frontend
 
 ## Pages
 
