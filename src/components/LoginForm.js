@@ -12,7 +12,7 @@ function LoginForm() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://crypto-backend-52fe7d65b9dc.herokuapp.com/login",
+        "https://127.0.0.1:5000/login",
         {
           email: email,
           password: password,

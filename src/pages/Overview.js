@@ -14,7 +14,7 @@ function Overview() {
 
         // Include the token in the request headers
         const result = await axios.get(
-          "https://crypto-backend-52fe7d65b9dc.herokuapp.com/portfolio",
+          "https://127.0.0.1:5000/portfolio",
           {
             headers: {
               Authorization: `Bearer ${token}`,
