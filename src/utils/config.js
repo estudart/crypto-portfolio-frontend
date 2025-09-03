@@ -1,1 +1,1 @@
-const BACKEND_ENDPOINT = "http://127.0.0.1:5000";
+const BACKEND_ENDPOINT = "https://web-production-5993.up.railway.app";
