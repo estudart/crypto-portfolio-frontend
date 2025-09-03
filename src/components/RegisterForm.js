@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
+import BACKEND_ENDPOINT from "../utils/config"
 
 function RegisterForm() {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ function RegisterForm() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://127.0.0.1:5000/register_user",
+        `${BACKEND_ENDPOINT}/register_user`,
         {
           email: email,
           password: password,

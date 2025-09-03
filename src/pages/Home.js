@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Portfolio from "../components/Portfolio";
 import NavBar from "../components/NavBar";
 import axios from "axios";
+import BACKEND_ENDPOINT from "../utils/config"
 
 function Home() {
   const [data, setData] = useState("");
@@ -16,7 +17,7 @@ function Home() {
 
         // Include the token in the request headers
         const result = await axios.get(
-          "https://127.0.0.1:5000/portfolio",
+          `${BACKEND_ENDPOINT}/portfolio`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
