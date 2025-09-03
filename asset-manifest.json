@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/crypto-portfolio-frontend/static/css/main.661d8fa3.css",
-    "main.js": "/crypto-portfolio-frontend/static/js/main.40b17025.js",
+    "main.js": "/crypto-portfolio-frontend/static/js/main.c5e20e21.js",
     "static/js/592.2cd7a3f0.chunk.js": "/crypto-portfolio-frontend/static/js/592.2cd7a3f0.chunk.js",
     "static/media/bit.webp": "/crypto-portfolio-frontend/static/media/bit.53a6ebfa1a6b918f940f.webp",
     "index.html": "/crypto-portfolio-frontend/index.html",
     "main.661d8fa3.css.map": "/crypto-portfolio-frontend/static/css/main.661d8fa3.css.map",
-    "main.40b17025.js.map": "/crypto-portfolio-frontend/static/js/main.40b17025.js.map",
+    "main.c5e20e21.js.map": "/crypto-portfolio-frontend/static/js/main.c5e20e21.js.map",
     "592.2cd7a3f0.chunk.js.map": "/crypto-portfolio-frontend/static/js/592.2cd7a3f0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.661d8fa3.css",
-    "static/js/main.40b17025.js"
+    "static/js/main.c5e20e21.js"
   ]
 }
