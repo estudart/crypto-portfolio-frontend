@@ -1,1 +1,3 @@
 const BACKEND_ENDPOINT = "https://web-production-5993.up.railway.app";
+
+export default BACKEND_ENDPOINT;

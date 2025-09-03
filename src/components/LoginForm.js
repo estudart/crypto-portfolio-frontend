@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
-import BACKEND_ENDPOINT from "../utils/config"
+import BACKEND_ENDPOINT from "../utils/config";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
