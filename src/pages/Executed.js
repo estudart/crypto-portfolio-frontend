@@ -3,6 +3,7 @@ import axios from "axios";
 import ExecutedOrders from "../components/ExecutedOrders";
 import NavBar from "../components/NavBar";
 import "../App.css";
+import BACKEND_ENDPOINT from "../utils/config"
 
 function Executed() {
   const [data, setData] = useState("");
@@ -15,7 +16,7 @@ function Executed() {
 
         // Include the token in the request headers
         const result = await axios.get(
-          "https://127.0.0.1:5000/exec_order",
+          `${BACKEND_ENDPOINT}/exec_order`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
