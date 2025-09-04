@@ -97,7 +97,7 @@ export default function OrderReport() {
             <option>USDT</option>*/}
           </select>
         </label>
-        <input type="submit" className="form-submit" />
+        <input type="submit" value="Submit" className="form-submit" />
       </form>
     </div>
   );
